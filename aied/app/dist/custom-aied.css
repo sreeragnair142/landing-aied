@@ -1,0 +1,802 @@
+/* ========================================================
+   AIED CUSTOM STYLES: LOADER & WHATSAPP POPUP
+   ======================================================== */
+
+/* --- 1. AIED HIGH-TECH PRELOADER --- */
+.preloader.aied-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #0a1128 0%, #030614 70%, #02040d 100%);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+body.page-loaded .preloader.aied-preloader,
+.preloader.aied-preloader.is-hidden,
+.preloader.is-hidden {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: -99999 !important;
+}
+
+.aied-loader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    max-width: 420px;
+    width: 90%;
+    position: relative;
+    z-index: 2;
+}
+
+.aied-loader-brand {
+    position: relative;
+    width: 220px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 26px;
+}
+
+.aied-loader-logo {
+    max-width: 180px;
+    max-height: 52px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    z-index: 3;
+    animation: aiedLogoPulse 2s ease-in-out infinite;
+}
+
+.aied-loader-glow {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.35) 0%, rgba(92, 39, 254, 0.2) 45%, transparent 70%);
+    filter: blur(25px);
+    z-index: 1;
+    animation: aiedGlowPulse 2.4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.aied-loader-progress {
+    width: 210px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 16px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 12px rgba(0, 210, 255, 0.2);
+}
+
+.aied-loader-bar {
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(90deg, #00d2ff, #7928ca, #00d2ff);
+    background-size: 200% 100%;
+    border-radius: 999px;
+    position: absolute;
+    left: 0;
+    box-shadow: 0 0 10px #00d2ff, 0 0 20px rgba(121, 40, 202, 0.6);
+    animation: aiedBarMove 1.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.aied-loader-text {
+    color: #cbd5e1;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.9;
+}
+
+.aied-loader-text span {
+    color: #64748b;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: none;
+}
+
+@keyframes aiedLogoPulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.5));
+    }
+    50% {
+        transform: scale(1.04);
+        filter: drop-shadow(0 0 24px rgba(0, 210, 255, 0.9));
+    }
+}
+
+@keyframes aiedGlowPulse {
+    0%, 100% {
+        opacity: 0.45;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.25);
+    }
+}
+
+@keyframes aiedBarMove {
+    0% {
+        left: -40%;
+        width: 30%;
+    }
+    50% {
+        width: 60%;
+    }
+    100% {
+        left: 105%;
+        width: 35%;
+    }
+}
+
+
+/* --- 2. FLOATING WHATSAPP TRIGGER BUTTON --- */
+.whatsapp-float-trigger {
+    position: fixed !important;
+    bottom: 26px !important;
+    right: 26px !important;
+    width: 62px !important;
+    height: 62px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+    box-shadow: 0 8px 26px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    z-index: 2147483646 !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    border: 2px solid rgba(255, 255, 255, 0.25) !important;
+    outline: none !important;
+    pointer-events: auto !important;
+}
+
+.whatsapp-float-trigger:hover {
+    transform: scale(1.08) translateY(-3px) !important;
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+    color: #ffffff !important;
+}
+
+.whatsapp-float-trigger svg {
+    width: 34px;
+    height: 34px;
+    fill: currentColor;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.whatsapp-float-trigger .wa-ping {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 18px;
+    height: 18px;
+    background: #ff3b30;
+    border: 2px solid #05081b;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: waPulseBadge 2s infinite;
+}
+
+.whatsapp-float-trigger .wa-ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #25D366;
+    animation: waRippleEffect 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    pointer-events: none;
+}
+
+@keyframes waPulseBadge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes waRippleEffect {
+    0% { transform: scale(1); opacity: 0.9; }
+    100% { transform: scale(1.55); opacity: 0; }
+}
+
+
+/* --- 3. WHATSAPP CHAT POPUP WINDOW --- */
+.whatsapp-chat-popup {
+    position: fixed !important;
+    bottom: 100px !important;
+    right: 26px !important;
+    width: 360px !important;
+    max-width: calc(100vw - 32px) !important;
+    background: #0d1226 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(37, 211, 102, 0.18) !important;
+    border: 1px solid rgba(37, 211, 102, 0.3) !important;
+    z-index: 2147483647 !important;
+    overflow: hidden !important;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    display: none;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(24px) scale(0.92);
+    transform-origin: bottom right;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease !important;
+}
+
+.whatsapp-chat-popup.is-active {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+.whatsapp-chat-popup[data-closed="true"] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Header */
+.wa-popup-header {
+    background: linear-gradient(135deg, #075E54 0%, #128C7E 100%) !important;
+    padding: 16px 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    z-index: 2147483647 !important;
+}
+
+.wa-header-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.wa-avatar-wrap {
+    position: relative !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: #030614 !important;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.wa-avatar-wrap img {
+    max-width: 30px !important;
+    max-height: 24px !important;
+    object-fit: contain !important;
+}
+
+.wa-online-dot {
+    position: absolute !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    background: #25D366 !important;
+    border: 2px solid #075E54 !important;
+    box-shadow: 0 0 8px #25D366 !important;
+}
+
+.wa-header-info {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.wa-header-name {
+    color: #ffffff !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin: 0 !important;
+}
+
+.wa-header-status {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 11.5px !important;
+    font-weight: 400 !important;
+    margin-top: 2px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+
+.wa-header-status::before {
+    content: '' !important;
+    display: inline-block !important;
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background: #4ade80 !important;
+}
+
+.wa-close-btn {
+    position: relative !important;
+    z-index: 2147483647 !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: none !important;
+    color: #ffffff !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    padding: 0 !important;
+    transition: all 0.2s ease !important;
+    outline: none !important;
+    flex-shrink: 0 !important;
+}
+
+.wa-close-btn * {
+    pointer-events: none !important;
+}
+
+.wa-close-btn:hover {
+    background: rgba(255, 255, 255, 0.45) !important;
+    transform: scale(1.1) !important;
+    color: #ffffff !important;
+}
+
+/* Body / Chat Area */
+.wa-popup-body {
+    background: #090e21 !important;
+    background-image: radial-gradient(rgba(37, 211, 102, 0.04) 1px, transparent 1px) !important;
+    background-size: 16px 16px !important;
+    padding: 16px 16px 14px !important;
+    max-height: 360px !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+}
+
+.wa-date-pill {
+    text-align: center !important;
+    margin-bottom: 14px !important;
+}
+
+.wa-date-pill span {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #94a3b8 !important;
+    font-size: 10.5px !important;
+    font-weight: 500 !important;
+    padding: 3px 10px !important;
+    border-radius: 12px !important;
+    letter-spacing: 0.5px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.wa-message-bubble {
+    background: #141b33 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 4px 16px 16px 16px !important;
+    padding: 12px 14px !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+    position: relative !important;
+    margin-bottom: 14px !important;
+}
+
+.wa-message-sender {
+    color: #00d2ff !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.wa-message-sender .badge {
+    background: rgba(0, 210, 255, 0.15) !important;
+    color: #00d2ff !important;
+    font-size: 9.5px !important;
+    font-weight: 600 !important;
+    padding: 1px 6px !important;
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+}
+
+.wa-message-text {
+    color: #e2e8f0 !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    margin: 0 !important;
+}
+
+.wa-message-meta {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 4px !important;
+    margin-top: 6px !important;
+    color: #64748b !important;
+    font-size: 10.5px !important;
+}
+
+.wa-message-meta svg {
+    width: 14px !important;
+    height: 14px !important;
+    fill: #25D366 !important;
+}
+
+/* Quick prompt chips */
+.wa-chips-title {
+    color: #94a3b8 !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    margin: 0 0 8px 2px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+}
+
+.wa-chips-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-bottom: 6px !important;
+}
+
+.wa-chip-btn {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #cbd5e1 !important;
+    font-size: 11.5px !important;
+    font-weight: 500 !important;
+    padding: 7px 11px !important;
+    border-radius: 12px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    text-align: left !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    line-height: 1.2 !important;
+    outline: none !important;
+    pointer-events: auto !important;
+}
+
+.wa-chip-btn:hover {
+    background: rgba(37, 211, 102, 0.15) !important;
+    border-color: #25D366 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Footer / Action Area */
+.wa-popup-footer {
+    background: #0a0f24 !important;
+    padding: 16px 18px 18px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.07) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    z-index: 2147483647 !important;
+    pointer-events: auto !important;
+}
+
+.wa-primary-cta {
+    position: relative !important;
+    z-index: 2147483647 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 14px 20px !important;
+    border-radius: 28px !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.4) !important;
+    transition: all 0.25s ease !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+}
+
+.wa-primary-cta:hover {
+    background: linear-gradient(135deg, #1ebc57 0%, #0d7568 100%) !important;
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6) !important;
+    transform: translateY(-2px) !important;
+    color: #ffffff !important;
+}
+
+.wa-primary-cta svg {
+    width: 20px !important;
+    height: 20px !important;
+    fill: currentColor !important;
+    pointer-events: none !important;
+}
+
+.wa-primary-cta span {
+    pointer-events: none !important;
+}
+
+/* Adjust scroll-top so it does not collide with the WhatsApp widget */
+#scroll-top {
+    bottom: 98px !important;
+    right: 32px !important;
+    width: 46px !important;
+    height: 46px !important;
+    line-height: 46px !important;
+    z-index: 9990 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .whatsapp-chat-popup {
+        bottom: 84px !important;
+        right: 12px !important;
+        left: 12px !important;
+        width: auto !important;
+    }
+    .whatsapp-float-trigger {
+        bottom: 18px !important;
+        right: 18px !important;
+        width: 56px !important;
+        height: 56px !important;
+    }
+    #scroll-top {
+        bottom: 86px !important;
+        right: 22px !important;
+    }
+}
+
+/* ========================================================
+   AIED CONTENT VISIBILITY SAFEGUARD (AOS FIX)
+   Ensure cards, roadmaps, and portfolio are ALWAYS visible
+   ======================================================== */
+[data-aos]:not(.swiper-wrapper):not(.swiper-slide):not(.swiper):not(.project-swiper):not(.brands-swiper),
+.solution-card,
+.solutions-grid .col-lg-6,
+.portfolio-box,
+.portfolio__left,
+.portfolio__right,
+.portfolio__right .image,
+.roadmap__main,
+.roadmap-box {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ========================================================
+   AIED ENHANCED SWIPER STYLES: SOLUTIONS & BRANDS
+   ======================================================== */
+.project-swiper {
+    position: relative !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    padding: 10px 4px 20px !important;
+    margin-top: 30px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.project-swiper .swiper-wrapper {
+    display: flex !important;
+    box-sizing: content-box !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1 !important;
+    transition-property: transform !important;
+}
+
+.project-swiper .swiper-slide {
+    height: auto !important;
+    display: flex !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.project-swiper .project-box {
+    width: 100% !important;
+    margin-bottom: 25px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    position: relative !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(17, 13, 44, 0.72) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.35s ease !important;
+}
+
+.project-swiper .project-box:hover {
+    transform: translateY(-6px) !important;
+    border-color: rgba(29, 232, 241, 0.5) !important;
+    box-shadow: 0 15px 35px rgba(29, 232, 241, 0.2), 0 0 25px rgba(92, 39, 254, 0.3) !important;
+}
+
+.project-swiper .project-box .image {
+    height: 260px !important;
+    width: 100% !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    background: #0b0c22 !important;
+}
+
+.project-swiper .project-box .image a {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.project-swiper .project-box .image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.5s ease !important;
+}
+
+.project-swiper .project-box:hover .image img {
+    transform: scale(1.06) !important;
+}
+
+.project-swiper .project-box .content {
+    position: absolute !important;
+    bottom: 16px !important;
+    left: 16px !important;
+    right: 16px !important;
+    padding: 12px 16px !important;
+    background: rgba(7, 10, 41, 0.88) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(29, 232, 241, 0.25) !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+    z-index: 2 !important;
+    transition: all 0.3s ease !important;
+}
+
+.project-swiper .project-box:hover .content {
+    background: rgba(92, 39, 254, 0.9) !important;
+    border-color: rgba(29, 232, 241, 0.6) !important;
+}
+
+.project-swiper .project-box .content .project-cat {
+    display: block !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    color: #1DE8F1 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 4px !important;
+}
+
+.project-swiper .project-box .content .title {
+    display: block !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    line-height: 1.3 !important;
+    text-decoration: none !important;
+}
+
+/* Controls Dock */
+.project-swiper__controls {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 18px !important;
+    margin: 25px auto 0 !important;
+    padding: 8px 18px !important;
+    background: rgba(13, 18, 38, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 100px !important;
+    width: fit-content !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(29, 232, 241, 0.12) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Brands Section & Swiper */
+.brands-section {
+    position: relative !important;
+    padding: 60px 0 80px !important;
+    background: transparent !important;
+}
+
+.brands-swiper {
+    position: relative !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    margin-top: 35px !important;
+    padding: 10px 0 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.brands-swiper .swiper-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: content-box !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1 !important;
+    transition-property: transform !important;
+}
+
+.brands-swiper .swiper-slide {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 70px !important;
+    flex-shrink: 0 !important;
+}
+
+.brands-swiper .swiper-slide a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0.9 !important;
+    filter: brightness(1.25) contrast(1.1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3)) !important;
+    transition: all 0.3s ease !important;
+}
+
+.brands-swiper .swiper-slide a:hover {
+    opacity: 1 !important;
+    filter: brightness(1.5) drop-shadow(0 0 12px rgba(29, 232, 241, 0.5)) !important;
+    transform: scale(1.08) !important;
+}
+
+.brands-swiper .swiper-slide img {
+    max-height: 48px !important;
+    max-width: 140px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
