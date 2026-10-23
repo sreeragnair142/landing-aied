@@ -6069,7 +6069,10 @@ section.banner.s3.s2 .container .swiper-button-prev {
 
 @media (max-width: 767px) {
   .services-section {
-    padding: 90px 0 70px;
+    padding: 80px 0 60px;
+  }
+  .services-section .block-text {
+    margin-bottom: 35px;
   }
   .services-section .block-text p {
     padding: 0 15px !important;
@@ -6077,27 +6080,84 @@ section.banner.s3.s2 .container .swiper-button-prev {
   .solution-card,
   .solution-card--reverse {
     flex-direction: column !important;
+    height: auto !important;
   }
-  .solution-card__body,
-  .solution-card__media {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
+  .solution-card__media,
   .solution-card--reverse .solution-card__media {
     order: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 auto !important;
+    min-height: 200px !important;
+    height: 220px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
+  .solution-card__media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  .solution-card__media::after,
+  .solution-card--reverse .solution-card__media::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, transparent 40%, rgba(17, 13, 44, 0.85) 100%) !important;
+    pointer-events: none !important;
+  }
+  .solution-card__body,
   .solution-card--reverse .solution-card__body {
     order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 1 auto !important;
+    padding: 24px 20px 26px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
-  .solution-card__media {
-    min-height: 220px;
-    height: 220px;
+  .solution-card__icon {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 22px !important;
+    margin-bottom: 14px !important;
+    border-radius: 12px !important;
   }
-  .solution-card__body {
-    padding: 24px 20px;
+  .solution-card__title {
+    font-size: 17px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 10px !important;
   }
-  .solution-card__media::after {
-    background: linear-gradient(180deg, transparent 50%, rgba(17, 13, 44, 0.7) 100%) !important;
+  .solution-card__desc {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 18px !important;
+  }
+  .solution-card__btn {
+    font-size: 12.5px !important;
+    margin-top: auto !important;
+    padding-top: 4px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .solution-card__media,
+  .solution-card--reverse .solution-card__media {
+    height: 195px !important;
+    min-height: 195px !important;
+  }
+  .solution-card__body,
+  .solution-card--reverse .solution-card__body {
+    padding: 20px 16px 22px !important;
   }
 }
 

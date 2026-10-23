@@ -800,3 +800,70 @@ body.page-loaded .preloader.aied-preloader,
     height: auto !important;
     object-fit: contain !important;
 }
+
+/* ========================================================
+   AIED SECURITY SOLUTIONS MOBILE RESPONSIVE SAFEGUARD
+   Fix: Ensure solution card images & body are both fully visible
+   ======================================================== */
+@media (max-width: 767px) {
+    .solution-card,
+    .solution-card--reverse {
+        flex-direction: column !important;
+        height: auto !important;
+    }
+    .solution-card__media,
+    .solution-card--reverse .solution-card__media {
+        order: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 auto !important;
+        min-height: 200px !important;
+        height: 220px !important;
+        position: relative !important;
+        overflow: hidden !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    .solution-card__media img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .solution-card__media::after,
+    .solution-card--reverse .solution-card__media::after {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(180deg, transparent 40%, rgba(17, 13, 44, 0.85) 100%) !important;
+        pointer-events: none !important;
+    }
+    .solution-card__body,
+    .solution-card--reverse .solution-card__body {
+        order: 2 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 1 1 auto !important;
+        padding: 24px 20px 26px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .solution-card__media,
+    .solution-card--reverse .solution-card__media {
+        height: 195px !important;
+        min-height: 195px !important;
+    }
+    .solution-card__body,
+    .solution-card--reverse .solution-card__body {
+        padding: 20px 16px 22px !important;
+    }
+}
